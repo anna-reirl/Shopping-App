@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import seedRouter from './routes/seedRoutes.js';
 import productRouter from './routes/productRoutes.js';
-
+import cors from 'cors';
 dotenv.config();
 
 mongoose
@@ -17,6 +17,15 @@ mongoose
   });
 
 const app = express();
+
+// app.use(
+//   cors({
+//     credentials: true,
+//     origin: ['http://localhost:3000'],
+//     optionSuccessStatus: 200,
+//   })
+// );
+
 app.use('/api/seed', seedRouter);
 app.use('/api/products', productRouter);
 
