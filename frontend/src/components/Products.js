@@ -15,7 +15,7 @@ function Product(props) {
   } = state;
 
   const addToCartHandler = async (item) => {
-    const existItem = cartItems.find((x) => x._id === product._id);
+    const existItem = cartItems.find((x) => x._id == product._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
     const { data } = await axios.get(
       `http://localhost:8080/api/products/${item._id}`

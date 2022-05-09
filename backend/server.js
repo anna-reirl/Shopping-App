@@ -8,7 +8,7 @@ import cors from 'cors';
 dotenv.config();
 
 mongoose
-  .connect(process.env.MONGODB_URI)
+  .connect('mongodb://0.0.0.0:27017/amazona')
   .then(() => {
     console.log('connected to db');
   })
@@ -17,6 +17,7 @@ mongoose
   });
 
 const app = express();
+app.use(express.json());
 
 app.use(
   cors({
@@ -28,28 +29,6 @@ app.use(
 
 app.use('/api/seed', seedRouter);
 app.use('/api/products', productRouter);
-
-// app.get('/api/products', (req, res) => {
-//   res.send(data.products);
-// });
-
-// app.get('/api/products/slug/:slug', (req, res) => {
-//   const product = data.products.find((x) => x.slug === req.params.slug);
-//   if (product) {
-//     res.send(product);
-//   } else {
-//     res.status(404).send({ message: 'Product Not Found' });
-//   }
-// });
-
-// app.get('/api/products/:id', (req, res) => {
-//   const product = data.products.find((x) => x._id === req.params.id);
-//   if (product) {
-//     res.send(product);
-//   } else {
-//     res.status(404).send({ message: 'Product Not Found' });
-//   }
-// });
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
