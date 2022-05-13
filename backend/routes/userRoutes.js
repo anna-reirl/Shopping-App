@@ -9,6 +9,10 @@ const userRouter = express.Router();
 userRouter.post(
   '/signin',
   expressAsyncHandler(async (req, res) => {
+    const myPlaintextPassword = 'gereric';
+    const hash = bcrypt.hashSync(myPlaintextPassword, 5);
+    const result = bcrypt.compareSync(myPlaintextPassword, hash);
+    console.log(result);
     const user = await User.findOne({ email: req.body.email });
     if (user) {
       if (bcrypt.compareSync(req.body.password, user.password)) {
