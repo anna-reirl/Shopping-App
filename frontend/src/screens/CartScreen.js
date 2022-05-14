@@ -42,12 +42,12 @@ export default function CartScreen() {
       <Helmet>
         <title>Shopping Cart</title>
       </Helmet>
-      <h1>Shopping Cart</h1>
+      <h1>Корзина</h1>
       <Row>
         <Col md={8}>
           {cartItems.length === 0 ? (
             <MessageBox>
-              Cart is empty. <Link to="/">Go Shopping</Link>
+              Корзина пустая <Link to="/">Продолжить покупки</Link>
             </MessageBox>
           ) : (
             <ListGroup>
@@ -104,9 +104,8 @@ export default function CartScreen() {
               <ListGroup variant="flush">
                 <ListGroup.Item>
                   <h3>
-                    Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '}
-                    items) : $
-                    {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
+                    Итог ({cartItems.reduce((a, c) => a + c.quantity, 0)} шт) :
+                    ${cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
                   </h3>
                 </ListGroup.Item>
                 <ListGroup.Item>
@@ -117,7 +116,7 @@ export default function CartScreen() {
                       disabled={cartItems.length === 0}
                       onClick={checkoutHandler}
                     >
-                      Proceed to Checkout
+                      Перейти к оформлению заказа
                     </Button>
                   </div>
                 </ListGroup.Item>

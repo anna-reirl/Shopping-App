@@ -33,11 +33,11 @@ function App() {
           <Navbar bg="dark" variant="dark">
             <Container>
               <LinkContainer to="/">
-                <Navbar.Brand>amazona</Navbar.Brand>
+                <Navbar.Brand>Магазин "Озон"</Navbar.Brand>
               </LinkContainer>
               <Nav className="me-auto">
                 <Link to="/cart" className="nav-link">
-                  Cart
+                  Корзина
                   {cart.cartItems.length > 0 && (
                     <Badge pill bg="danger">
                       {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
@@ -47,10 +47,10 @@ function App() {
                 {userInfo ? (
                   <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
                     <LinkContainer to="/profile">
-                      <NavDropdown.Item>User Profile</NavDropdown.Item>
+                      <NavDropdown.Item>Профиль пользователя</NavDropdown.Item>
                     </LinkContainer>
                     <LinkContainer to="/orderhistory">
-                      <NavDropdown.Item>Order History</NavDropdown.Item>
+                      <NavDropdown.Item>История заказов</NavDropdown.Item>
                     </LinkContainer>
                     <NavDropdown.Divider />
                     <Link
@@ -58,12 +58,12 @@ function App() {
                       to="#signout"
                       onClick={signoutHandler}
                     >
-                      Sign Out
+                      Выход
                     </Link>
                   </NavDropdown>
                 ) : (
                   <Link className="nav-link" to="/signin">
-                    Sign In
+                    Войти
                   </Link>
                 )}
               </Nav>
@@ -86,7 +86,7 @@ function App() {
           </Container>
         </main>
         <footer>
-          <div className="text-center">All right reserved</div>
+          <div className="text-center">Все права защищены</div>
         </footer>
       </div>
     </BrowserRouter>
