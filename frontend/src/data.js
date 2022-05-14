@@ -1,7 +1,7 @@
 const data = {
   products: [
     {
-      name: 'Nike Slim shirt',
+      name: 'Iphone 13 Pro Max',
       slug: 'nike-slim-shirt',
       category: 'Shirts',
       image: '/images/p1.jpeg', // 679px × 829px
@@ -10,10 +10,11 @@ const data = {
       brand: 'Nike',
       rating: 4.5,
       numReviews: 10,
-      description: 'high quality shirt',
+      description:
+        'Значительно более мощная система камер. Абсолютно новые ощущения от дисплея. Самый быстрый чип для iPhone. Исключительная прочность. И огромный прирост ресурса аккумулятора. Всё это Pro.',
     },
     {
-      name: 'Adidas Fit Shirt',
+      name: 'Iphone 12 Pro Max',
       slug: 'adidas-fit-shirt',
       category: 'Shirts',
       image: '/images/p2.jpeg',
@@ -25,7 +26,7 @@ const data = {
       description: 'high quality product',
     },
     {
-      name: 'Nike Slim Pant',
+      name: 'Iphone 13 Pro Max',
       slug: 'nike-slim-pant',
       category: 'Pants',
       image: '/images/p3.jpeg',
@@ -37,7 +38,7 @@ const data = {
       description: 'high quality product',
     },
     {
-      name: 'Adidas Fit Pant',
+      name: 'Iphone 13 Pro Max',
       slug: 'adidas-fit-pant',
       category: 'Pants',
       image: '/images/p4.jpeg',
