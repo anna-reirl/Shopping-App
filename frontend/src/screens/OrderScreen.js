@@ -196,15 +196,15 @@ export default function OrderScreen() {
       <Helmet>
         <title>Order {orderId}</title>
       </Helmet>
-      <h1 className="my-3">Order {orderId}</h1>
+      <h1 className="my-3">Заказ {orderId}</h1>
       <Row>
         <Col md={8}>
           <Card className="mb-3">
             <Card.Body>
-              <Card.Title>Shipping</Card.Title>
+              <Card.Title>Оформление заказа</Card.Title>
               <Card.Text>
-                <strong>Name:</strong> {order.shippingAddress.fullName} <br />
-                <strong>Address: </strong> {order.shippingAddress.address},
+                <strong>Имя:</strong> {order.shippingAddress.fullName} <br />
+                <strong>Адрес: </strong> {order.shippingAddress.address},
                 {order.shippingAddress.city}, {order.shippingAddress.postalCode}
                 ,{order.shippingAddress.country}
                 &nbsp;
@@ -214,7 +214,7 @@ export default function OrderScreen() {
                       target="_new"
                       href={`https://maps.google.com?q=${order.shippingAddress.location.lat},${order.shippingAddress.location.lng}`}
                     >
-                      Show On Map
+                      Показать на карте
                     </a>
                   )}
               </Card.Text>
@@ -223,29 +223,29 @@ export default function OrderScreen() {
                   Delivered at {order.deliveredAt}
                 </MessageBox>
               ) : (
-                <MessageBox variant="danger">Not Delivered</MessageBox>
+                <MessageBox variant="danger">Не оформлен заказ</MessageBox>
               )}
             </Card.Body>
           </Card>
           <Card className="mb-3">
             <Card.Body>
-              <Card.Title>Payment</Card.Title>
+              <Card.Title>Оплата</Card.Title>
               <Card.Text>
-                <strong>Method:</strong> {order.paymentMethod}
+                <strong>Способы:</strong> {order.paymentMethod}
               </Card.Text>
               {order.isPaid ? (
                 <MessageBox variant="success">
-                  Paid at {order.paidAt}
+                  Оплачено в {order.paidAt}
                 </MessageBox>
               ) : (
-                <MessageBox variant="danger">Not Paid</MessageBox>
+                <MessageBox variant="danger">Не оплачено</MessageBox>
               )}
             </Card.Body>
           </Card>
 
           <Card className="mb-3">
             <Card.Body>
-              <Card.Title>Items</Card.Title>
+              <Card.Title>Кол-во</Card.Title>
               <ListGroup variant="flush">
                 {order.orderItems.map((item) => (
                   <ListGroup.Item key={item._id}>
@@ -272,7 +272,7 @@ export default function OrderScreen() {
         <Col md={4}>
           <Card className="mb-3">
             <Card.Body>
-              <Card.Title>Order Summary</Card.Title>
+              <Card.Title>Общая стоимость заказа</Card.Title>
               <ListGroup variant="flush">
                 <ListGroup.Item>
                   <Row>
@@ -282,20 +282,20 @@ export default function OrderScreen() {
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <Row>
-                    <Col>Shipping</Col>
+                    <Col>Заказ</Col>
                     <Col>${order.shippingPrice.toFixed(2)}</Col>
                   </Row>
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <Row>
-                    <Col>Tax</Col>
+                    <Col>Налог</Col>
                     <Col>${order.taxPrice.toFixed(2)}</Col>
                   </Row>
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <Row>
                     <Col>
-                      <strong> Order Total</strong>
+                      <strong> Весь заказ</strong>
                     </Col>
                     <Col>
                       <strong>${order.totalPrice.toFixed(2)}</strong>
@@ -323,7 +323,7 @@ export default function OrderScreen() {
                     {loadingDeliver && <LoadingBox></LoadingBox>}
                     <div className="d-grid">
                       <Button type="button" onClick={deliverOrderHandler}>
-                        Deliver Order
+                        Доставить заказ
                       </Button>
                     </div>
                   </ListGroup.Item>
